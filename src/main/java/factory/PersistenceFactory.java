@@ -14,6 +14,8 @@ public class PersistenceFactory {
                     return new DBPersistence();
                 case XML:
                     return new XMLPersistence();
+                case File:
+                    return new FilePersistence();
                 default:
                     return null;
             }

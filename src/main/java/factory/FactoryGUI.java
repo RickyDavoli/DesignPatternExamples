@@ -60,11 +60,17 @@ public class FactoryGUI extends JFrame {
 		JRadioButton rdbXml = new JRadioButton("XML");
 		rdbXml.setBounds(251, 34, 111, 23);
 		contentPane.add(rdbXml);
-		
+
+		JRadioButton rdbFile = new JRadioButton("File");
+		rdbFile.setBounds(251, 34+23, 111, 23);
+		contentPane.add(rdbFile);
+
 		persistenceGroup = new ButtonGroup();
 		
 		persistenceGroup.add(rdbDatabase);
 		persistenceGroup.add(rdbXml);
+		persistenceGroup.add(rdbFile);
+
 		
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -75,6 +81,10 @@ public class FactoryGUI extends JFrame {
 			    else if (rdbXml.isSelected())
 			    {
 			        lblResult.setText(PersistenceFactory.GetFactory(PersistenceType.XML).Persist(txtName.getText()));
+			    }
+				else if (rdbFile.isSelected())
+			    {
+			        lblResult.setText(PersistenceFactory.GetFactory(PersistenceType.File).Persist(txtName.getText()));
 			    }
 			    else {
 			        lblResult.setText("You must select a persistence type");

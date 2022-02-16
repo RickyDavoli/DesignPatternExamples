@@ -2,5 +2,6 @@ package factory;
 
 public enum PersistenceType {
     Database,
-    XML
+    XML,
+    File
 }
